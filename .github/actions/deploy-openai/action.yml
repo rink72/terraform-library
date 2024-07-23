@@ -39,6 +39,7 @@ runs:
   using: composite
   steps:
     - name: Echo inputs
+      shell: bash
       run: |
         echo "Client ID: ${{ inputs.client_id }}"
         echo "Tenant ID: ${{ inputs.tenant_id }}"
