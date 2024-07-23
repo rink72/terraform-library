@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   deploy:
-    uses: .github/workflows/reusable-workflow.yml@main
+    uses: .github/workflows/deploy-openai-workflow.yml@main
     with:
       configuration_path: ${{ github.workspace }}/tests/openai/openai.yml
       client_id: ${{ secrets.AZURE_CLIENT_ID }}
