@@ -80,7 +80,7 @@ runs:
         ARM_TENANT_ID: ${{ inputs.tenant_id }}
         ARM_USE_OIDC: true
         TF_IN_AUTOMATION: true
-        TF_INPUT=0
+        TF_INPUT: false
 
     - name: Terraform ${{ inputs.action }}
       run: |
@@ -95,4 +95,4 @@ runs:
         TF_IN_AUTOMATION: true
         TF_CLI_ARGS_apply: -auto-approve
         TF_CLI_ARGS_destroy: -auto-approve
-        TF_INPUT=0
+        TF_INPUT: false
