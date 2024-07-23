@@ -6,25 +6,23 @@ on:
       configuration_path:
         required: true
         type: string
-      client_id:
-        type: string
-        description: 'Azure Service Principal Client ID'
-        required: true
-      tenant_id:
-        type: string
-        description: 'Azure Tenant ID'
-        required: true
       action:
         type: string
         description: 'Terraform action to run'
         required: true
-      subscription_id:
-        type: string
-        description: 'Azure Subscription ID for Terraform state'
-        required: true
       state_key:
         type: string
         description: 'Azure Storage Key for Terraform state'
+        required: true
+    secrets:
+      client_id:
+        description: 'Azure Service Principal Client ID'
+        required: true
+      tenant_id:
+        description: 'Azure Tenant ID'
+        required: true
+      subscription_id:
+        description: 'Azure Subscription ID for Terraform state'
         required: true
 
 jobs:

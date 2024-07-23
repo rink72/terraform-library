@@ -12,10 +12,11 @@ jobs:
     uses: ./.github/workflows/deploy-openai-workflow.yml
     with:
       configuration_path: ${{ github.workspace }}/tests/openai/openai.yml
-      client_id: ${{ secrets.AZURE_CLIENT_ID }}
-      tenant_id: ${{ secrets.AZURE_TENANT_ID }}
-      subscription_id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
       action: plan
       state_resource_group: rink72tf-rg
       state_storage_account: rink72tfsa
       state_key: openai
+    secrets:
+      client_id: ${{ secrets.AZURE_CLIENT_ID }}
+      tenant_id: ${{ secrets.AZURE_TENANT_ID }}
+      subscription_id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
