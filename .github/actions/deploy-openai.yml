@@ -38,6 +38,19 @@ inputs:
 runs:
   using: composite
   steps:
+    - name: Echo inputs
+      run: |
+        echo "Client ID: ${{ inputs.client_id }}"
+        echo "Tenant ID: ${{ inputs.tenant_id }}"
+        echo "Action: ${{ inputs.action }}"
+        echo "Subscription ID: ${{ inputs.subscription_id }}"
+        echo "State Resource Group: ${{ inputs.state_resource_group }}"
+        echo "State Storage Account: ${{ inputs.state_storage_account }}"
+        echo "State Container: ${{ inputs.state_container }}"
+        echo "State Key: ${{ inputs.state_key }}"
+        echo "Terraform Version: ${{ inputs.terraform_version }}"
+        echo "Terraform Path: ${{ inputs.terraform_path }}"
+
     - name: Terraform install
       uses: hashicorp/setup-terraform@v3
       with:
