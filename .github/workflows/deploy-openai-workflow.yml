@@ -1,0 +1,50 @@
+name: Deploy OpenAI
+
+on:
+  workflow_call:
+    inputs:
+      configuration_path:
+        required: true
+        type: string
+      client_id:
+        type: string
+        description: 'Azure Service Principal Client ID'
+        required: true
+      tenant_id:
+        type: string
+        description: 'Azure Tenant ID'
+        required: true
+      action:
+        type: string
+        description: 'Terraform action to run'
+        required: true
+      subscription_id:
+        type: string
+        description: 'Azure Subscription ID for Terraform state'
+        required: true
+      state_key:
+        type: string
+        description: 'Azure Storage Key for Terraform state'
+        required: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Deploy OpenAI
+      uses: ./.github/actions/deploy-openai
+      with:
+        client_id: ${{ github.event.inputs.client_id }}
+        tenant_id: ${{ github.event.inputs.tenant_id }}
+        action: ${{ github.event.inputs.action }}
+        subscription_id: ${{ github.event.inputs.subscription_id }}
+        state_resource_group: ${{ github.event.inputs.state_resource_group }}
+        state_storage_account: ${{ github.event.inputs.state_storage_account }}
+        configuration_path: ${{ github.event.inputs.configuration_path }}
+        state_key: ${{ github.event.repository.full_name }}/${{ github.event.inputs.state_key }}/terraform.tfstate
+
+    
