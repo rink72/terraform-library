@@ -10,6 +10,14 @@ on:
         type: string
         description: 'Terraform action to run'
         required: true
+      state_resource_group:
+        type: string
+        description: 'Azure Resource Group for Terraform state'
+        required: true
+      state_storage_account:
+        type: string
+        description: 'Azure Storage Account for Terraform state'
+        required: true
       state_key:
         type: string
         description: 'Azure Storage Key for Terraform state'
