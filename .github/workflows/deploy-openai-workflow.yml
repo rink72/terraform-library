@@ -61,6 +61,7 @@ jobs:
         state_key: ${{ github.event.repository.full_name }}/${{ inputs.state_key }}/terraform.tfstate
 
   deployTest:
+    needs: deploy
     runs-on: ubuntu-latest
     steps:
 
