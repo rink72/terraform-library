@@ -10,7 +10,7 @@ locals {
   billing_code     = local.configuration["billing_code"]
 
   # Read region codes from yaml
-  region_codes = yamldecode(file("${path.module}/../../data/regions.yml"))
+  region_codes = yamldecode(file("${path.module}/../../../../data/regions.yml"))
 
   deployment_region_code = local.region_codes[local.location]
   resource_group_name    = "${local.service_code}-${local.context_code}-${local.environment_code}-${local.deployment_region_code}-rgp"
