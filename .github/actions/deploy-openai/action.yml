@@ -36,7 +36,7 @@ inputs:
     default: 1.7.5
   terraform_path:
     description: "Path to Terraform configuration"
-    default: "patterns/openai"
+    default: ${{ github.action_path }}/patterns/openai
 
 runs:
   using: composite
