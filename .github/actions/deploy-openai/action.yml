@@ -83,7 +83,7 @@ runs:
 
     - name: Terraform ${{ inputs.action }}
       run: |
-        terraform ${{ inputs.action }} --var="configuration_path=${{ inputs.configuration_path }}" --chdir="${{ github.action_path }}/pattern"
+        terraform --chdir="${{ github.action_path }}/pattern" ${{ inputs.action }} --var="configuration_path=${{ inputs.configuration_path }}"
       # working-directory: ${{ github.action_path }}/pattern
       shell: bash
       env:
