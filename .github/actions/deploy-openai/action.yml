@@ -2,6 +2,9 @@ name: Run Azure Terraform
 description: Deploy OpenAI
 
 inputs:
+  configuration_path:
+    description: "Path to resource configuration file"
+    required: true
   client_id:
     description: "Azure Service Principal Client ID"
     required: true
@@ -57,13 +60,6 @@ runs:
       with:
         terraform_version: ${{ inputs.terraform_version }}
 
-    - name: Az CLI login
-      uses: azure/login@v1
-      with:
-        client-id: ${{ inputs.client_id }}
-        subscription-id: ${{ inputs.subscription_id }}
-        tenant-id: ${{ inputs.tenant_id }}
-
     - name: Terraform init
       run: |
         terraform init \
@@ -84,7 +80,7 @@ runs:
 
     - name: Terraform ${{ inputs.action }}
       run: |
-        terraform ${{ inputs.action }}
+        terraform ${{ inputs.action }} --var="configuration_path=${{ inputs.configuration_path }}"
       working-directory: ${{ inputs.terraform_path }}
       shell: bash
       env:

@@ -41,6 +41,13 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
+    - name: Az CLI login
+      uses: azure/login@v1
+      with:
+        client-id: ${{ secrets.client_id }}
+        subscription-id: ${{ secrets.subscription_id }}
+        tenant-id: ${{ secrets.tenant_id }}
+
     - name: Deploy OpenAI
       uses: ./.github/actions/deploy-openai
       with:
