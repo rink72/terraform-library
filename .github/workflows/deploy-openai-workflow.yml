@@ -59,32 +59,3 @@ jobs:
         state_storage_account: ${{ inputs.state_storage_account }}
         configuration_path: ${{ github.workspace }}/${{ inputs.configuration_path }}
         state_key: ${{ github.event.repository.full_name }}/${{ inputs.state_key }}/terraform.tfstate
-
-  deployTest:
-    needs: deploy
-    runs-on: ubuntu-latest
-    steps:
-
-    - name: Checkout repository
-      uses: actions/checkout@v4
-
-    - name: Az CLI login
-      uses: azure/login@v1
-      with:
-        client-id: ${{ secrets.client_id }}
-        subscription-id: ${{ secrets.subscription_id }}
-        tenant-id: ${{ secrets.tenant_id }}
-
-    - name: OpenAI
-      uses: rink72/terraform-library/.github/actions/deploy-openai@main
-      with:
-        client_id: ${{ secrets.client_id }}
-        tenant_id: ${{ secrets.tenant_id }}
-        action: ${{ inputs.action }}
-        subscription_id: ${{ secrets.subscription_id }}
-        state_resource_group: ${{ inputs.state_resource_group }}
-        state_storage_account: ${{ inputs.state_storage_account }}
-        configuration_path: ${{ github.workspace }}/${{ inputs.configuration_path }}
-        state_key: ${{ github.event.repository.full_name }}/${{ inputs.state_key }}/terraform.tfstate
-
-    
