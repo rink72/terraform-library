@@ -52,6 +52,12 @@ runs:
         echo "Terraform Version: ${{ inputs.terraform_version }}"
         echo "Configuration Path: ${{ inputs.configuration_path }}"
 
+    - name: Output current path and file list
+      run: |
+        pwd
+        ls -al
+      shell: bash
+
     - name: Terraform install
       uses: hashicorp/setup-terraform@v3
       with:
