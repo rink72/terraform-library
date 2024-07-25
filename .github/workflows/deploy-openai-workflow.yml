@@ -10,6 +10,10 @@ on:
         type: string
         description: 'Terraform action to run'
         required: true
+      github_environment:
+        type: string
+        description: 'GitHub environment'
+        required: true
       state_resource_group:
         type: string
         description: 'Azure Resource Group for Terraform state'
@@ -35,6 +39,7 @@ on:
 
 jobs:
   deploy:
+    environment: ${{ inputs.github_environment }}
     runs-on: ubuntu-latest
     steps:
 
