@@ -49,7 +49,7 @@ jobs:
         tenant-id: ${{ secrets.tenant_id }}
 
     - name: Deploy OpenAI
-      uses: rink72/terraform-library/deploy-openai
+      uses: rink72/terraform-library/deploy-openai@main
       with:
         client_id: ${{ secrets.client_id }}
         tenant_id: ${{ secrets.tenant_id }}
