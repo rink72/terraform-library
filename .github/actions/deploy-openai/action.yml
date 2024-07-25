@@ -50,7 +50,7 @@ runs:
         echo "State Container: ${{ inputs.state_container }}"
         echo "State Key: ${{ inputs.state_key }}"
         echo "Terraform Version: ${{ inputs.terraform_version }}"
-        echo "Terraform Path: ${{ github.action_path }}/pattern"
+        echo "Configuration Path: ${{ inputs.configuration_path }}"
 
     - name: Terraform install
       uses: hashicorp/setup-terraform@v3
