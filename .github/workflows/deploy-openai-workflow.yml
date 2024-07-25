@@ -57,7 +57,7 @@ jobs:
         subscription_id: ${{ secrets.subscription_id }}
         state_resource_group: ${{ inputs.state_resource_group }}
         state_storage_account: ${{ inputs.state_storage_account }}
-        configuration_path: ${{ github.env.GITHUB_WORKSPACE }}/${{ inputs.configuration_path }}
+        configuration_path: ${{ github.workspace }}/${{ inputs.configuration_path }}
         state_key: ${{ github.event.repository.full_name }}/${{ inputs.state_key }}/terraform.tfstate
 
     
