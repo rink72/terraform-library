@@ -29,7 +29,7 @@ resource "azurerm_resource_group" "resource_group" {
 }
 
 module "openai" {
-  source = "modules/openai"
+  source = "./modules/openai"
 
   name                = local.resource_name
   resource_group_name = azurerm_resource_group.resource_group.name
