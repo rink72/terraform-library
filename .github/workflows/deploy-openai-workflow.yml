@@ -6,10 +6,6 @@ on:
       configuration_path:
         required: true
         type: string
-      action_version:
-        type: string
-        description: 'Github action version'
-        required: true
       action:
         type: string
         description: 'Terraform action to run'
